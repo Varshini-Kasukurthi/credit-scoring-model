@@ -4,6 +4,7 @@ Takes care of null values.
 if any null value ? do the magic : return the initial/original dataframe
 """""
 def replace_values_and_print_final_dataframe_look(dataframe):
+    # 'NaN'
     if dataframe.isnull().values.any():
         dataframe["REASON"].fillna(value="DebtCon", inplace=True)
         dataframe["JOB"].fillna(value="Other", inplace=True)
@@ -25,5 +26,5 @@ We shall use Pearson correlation factor pearson in this case.
 """""
 def feature_selection(dataframe):
     dataframe.corr(method='pearson') 
-    features_sets = ["LOAN"]
+    features_sets = ["LOAN", "DEROG", "DELINQ"]
     return [dataframe, features_sets]
